@@ -19,13 +19,12 @@
 
       <!-- CREATE A TO-DO SECTION -->
       <section class="create-to-do">
-        <h3>CREATE A TODO</h3>
-
         <form id="newToDo">
           <h4>What's on your to-do list?</h4>
           <input
             type="text"
             name="content"
+            class="create-to-do-input"
             id="content"
             placeholder="e.g program a to-do list app"
           />
@@ -38,7 +37,7 @@
                 id="category1"
                 value="school"
               />
-              <span class="school-circle"></span>
+              <span class="school bubble"></span>
               <div>School</div>
             </label>
 
@@ -49,12 +48,12 @@
                 id="category2"
                 value="personal"
               />
-              <span class="personal-circle"></span>
+              <span class="personal bubble"></span>
               <div>Personal</div>
             </label>
           </div>
 
-          <input type="submit" value="Add to-do" />
+          <input type="submit" value="Add to-do" class="input-submit" />
         </form>
       </section>
 
@@ -65,7 +64,7 @@
           <div class="item">
             <label>
               <input type="checkbox" />
-              <span class="bubble-school"></span>
+              <span class="bubble school"></span>
             </label>
 
             <div class="to-do-content">
