@@ -9,76 +9,20 @@
     <script src="to-do.js" defer></script>
   </head>
   <body>
-    <main class="container">
-      <!-- INTRO SECTION -->
-      <section class="intro">
-        <h2 class="title">
-          Welcome, <input type="text" id="name" placeholder="Name here" />
-        </h2>
-      </section>
+    <div class="container">
+      <h1>To-do List</h1>
 
-      <!-- CREATE A TO-DO SECTION -->
-      <section class="create-to-do">
-        <form id="newToDo">
-          <h4>What's on your to-do list?</h4>
-          <input
-            type="text"
-            name="content"
-            class="create-to-do-input"
-            id="content"
-            placeholder="e.g program a to-do list app"
-          />
-          <h4>Choose a category:</h4>
-          <div class="options">
-            <label>
-              <input
-                type="radio"
-                name="category"
-                id="category1"
-                value="school"
-              />
-              <span class="school bubble"></span>
-              <div>School</div>
-            </label>
+      <div class="input-div">
+        <input
+          type="text"
+          class="input"
+          placeholder="e.g code a to-do list app"
+        />
+        <button class="add-button">Add</button>
+      </div>
 
-            <label>
-              <input
-                type="radio"
-                name="category"
-                id="category2"
-                value="personal"
-              />
-              <span class="personal bubble"></span>
-              <div>Personal</div>
-            </label>
-          </div>
-
-          <input type="submit" value="Add to-do" class="input-submit" />
-        </form>
-      </section>
-
-      <!-- TO-DO LIST SECTION -->
-      <section class="to-do-list">
-        <h3>To-do List:</h3>
-        <div class="list" id="toDoList">
-          <div class="item">
-            <label>
-              <input type="checkbox" />
-              <span class="bubble school"></span>
-            </label>
-
-            <div class="to-do-content">
-              <input type="text" value="program a to-do list app" />
-              <!-- MAYBE ADD READONLY HERE? -->
-            </div>
-
-            <div class="actions">
-              <button class="edit">Edit</button>
-              <button class="delete">Delete</button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+      <div class="to-do-list-container"></div>
+    </div>
+    <button class="remove-button" onclick="removeAll()">Clear All</button>
   </body>
 </html>
