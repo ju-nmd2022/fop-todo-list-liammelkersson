@@ -13,20 +13,23 @@
       <h1>To-do List</h1>
     </header>
 
-    <div class="container">
+    <div class="container" id="container">
       <div class="input-div">
         <input
           type="text"
           class="input"
+          id="input"
           placeholder="e.g code a to-do list app"
         />
-        <button class="add-button">Add</button>
+        <button class="add-button" id="addButton">Add</button>
       </div>
 
-      <div class="to-do-list-container"></div>
+      <div class="to-do-list-container" id="toDoListContainer"></div>
     </div>
     <div class="remove-container">
-      <button class="remove-button" onclick="clearList()">Clear List</button>
+      <button class="remove-button" id="clearButton" onclick="clearList()">
+        Clear List
+      </button>
     </div>
   </body>
 </html>

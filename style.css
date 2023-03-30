@@ -6,6 +6,7 @@
   --list-item: #c2c2c2;
   --button: rgb(220, 140, 20);
   --remove-button: #c74a4a;
+  --done-button: #74d268;
 }
 
 * {
@@ -64,11 +65,18 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: left;
   margin-top: 2rem;
 }
 
+.to-do-item-div {
+  display: flex;
+  flex-direction: row;
+}
+
 .item-input {
+  display: flex;
+  align-items: center;
   background-color: var(--list-item);
   outline: none;
   border-radius: 0.5rem;
@@ -76,7 +84,7 @@ h1 {
   color: var(--text-dark);
   margin-top: 15px;
   font-size: 1.125rem;
-  width: 20rem;
+  width: 17rem;
   height: 3rem;
 }
 
@@ -97,8 +105,47 @@ h1 {
   font-size: 1.125rem;
   cursor: pointer;
   transition: 0.2s;
+  margin-top: 1rem;
 }
 
 .remove-button:hover {
+  opacity: 0.75;
+}
+
+.item-remove-button {
+  outline: none;
+  border: none;
+  height: 3rem;
+  width: 3rem;
+  background-color: var(--remove-button);
+  color: var(--text-dark);
+  border-radius: 0.5rem;
+  margin-top: 15px;
+  margin-left: 0.5rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.item-remove-button:hover {
+  opacity: 0.75;
+}
+
+.item-done-button {
+  outline: none;
+  border: none;
+  height: 3rem;
+  width: 3rem;
+  margin-top: 15px;
+  background-color: var(--done-button);
+  color: var(--text-dark);
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-left: 0.5rem;
+}
+
+.item-done-button:hover {
   opacity: 0.75;
 }
