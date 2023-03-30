@@ -1,0 +1,104 @@
+:root {
+  --background: #2a2a2a;
+  --text-light: #fff;
+  --text-dark: #000;
+  --input: #797979;
+  --list-item: #c2c2c2;
+  --button: rgb(220, 140, 20);
+  --remove-button: #c74a4a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+}
+
+h1 {
+  color: var(--text-light);
+  text-align: center;
+  margin: 1rem 0 3rem;
+  font-size: 32pt;
+}
+
+.input-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  padding: 0.5rem 1rem;
+  outline: none;
+  height: 3rem;
+  width: 20rem;
+  margin: 0.4rem;
+  font-size: 1.125rem;
+  border-radius: 0.5rem;
+}
+
+.add-button {
+  outline: none;
+  border: none;
+  height: 3rem;
+  width: 4rem;
+  background-color: var(--button);
+  color: var(--text-dark);
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-button:hover {
+  opacity: 0.75;
+}
+
+.to-do-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.item-input {
+  background-color: var(--list-item);
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 10px;
+  color: var(--text-dark);
+  margin-top: 15px;
+  font-size: 1.125rem;
+  width: 20rem;
+  height: 3rem;
+}
+
+.remove-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-button {
+  outline: none;
+  border: none;
+  height: 3rem;
+  width: 7rem;
+  background-color: var(--remove-button);
+  color: var(--text-light);
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.remove-button:hover {
+  opacity: 0.75;
+}
