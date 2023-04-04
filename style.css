@@ -32,7 +32,7 @@ h1 {
 .input {
   width: 18rem;
   height: 2.875rem;
-  border: 1px solid rgb(53, 53, 53);
+  border: 1px solid rgb(255, 255, 255);
   outline: none;
   font-size: 20px;
   border-radius: 2.5px;
@@ -43,7 +43,7 @@ h1 {
 .add-to-do {
   height: 3.125rem;
   width: 3.125rem;
-  border: 1px solid rgb(53, 53, 53);
+  border: 1px solid rgb(122, 122, 122);
   font-size: 20px;
   border-radius: 2.5px;
   vertical-align: middle;
