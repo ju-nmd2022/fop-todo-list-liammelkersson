@@ -3,9 +3,7 @@ const addToDoButtonElement = document.getElementById("addToDo");
 const toDoContainerElement = document.getElementById("toDoContainer");
 const inputElement = document.getElementById("input");
 let tasks = [];
-let done;
-
-//localStorage.clear();
+let task;
 
 //Create a new to do item on click
 addToDoButtonElement.addEventListener("click", () => {
@@ -15,6 +13,8 @@ addToDoButtonElement.addEventListener("click", () => {
 });
 
 function createToDo() {
+  let done = false;
+
   //creating a container for each element
   const toDoElement = document.createElement("div");
   toDoElement.classList.add("to-do-div");
@@ -25,7 +25,7 @@ function createToDo() {
   toDoTextElement.classList.add("to-do-item");
   toDoTextElement.innerText = inputElement.value;
   toDoElement.appendChild(toDoTextElement);
-  saveToDoList(inputElement.value);
+  saveToDoList(inputElement.value, done);
 
   //creating remove button
   const removeButtonElement = document.createElement("button");
@@ -51,22 +51,30 @@ function createToDo() {
   removeButtonElement.addEventListener("click", () => {
     toDoContainerElement.removeChild(toDoElement);
 
-    //localstorage
-    let deleteTaskValue = JSON.parse(localStorage.getItem("task"));
-    deleteTaskValue.splice(
-      deleteTaskValue.indexOf({ text: inputElement.value })
+    // Get the tasks array from local storage
+    let taskFromLS = JSON.parse(localStorage.getItem("task"));
+
+    // Find the index of the task in the array that matches the clicked to-do item
+    let index = taskFromLS.findIndex(
+      (task) => task.text === toDoTextElement.innerText
     );
-    localStorage.setItem("task", JSON.stringify(deleteTaskValue));
+
+    // If the index is found, remove the task from the array, update local storage, and display the updated list
+    if (index !== -1) {
+      taskFromLS.splice(index, 1);
+      localStorage.setItem("task", JSON.stringify(taskFromLS));
+      displayToDoList();
+    }
+
+    // Call the displayToDoList function to update the list
     displayToDoList();
   });
 }
 
-function saveToDoList(text) {
+function saveToDoList(text, done) {
   const task = {
     text: text,
-    //done:
-    //made it an object cause it might be useful for future additions
-    //(e.g edit button or similar)
+    done: done,
   };
 
   //Error checking
@@ -74,7 +82,6 @@ function saveToDoList(text) {
     localStorage.task = JSON.stringify([]);
   }
 
-  //we save it here
   tasks = JSON.parse(localStorage.getItem("task"));
   tasks.push(task);
   localStorage.setItem("task", JSON.stringify(tasks));
@@ -101,6 +108,40 @@ function displayToDoList() {
       toDoTextElement.innerText = task.text;
       toDoElement.appendChild(toDoTextElement);
 
+      // set the textDecoration property based on the done property saved in localStorage
+      if (task.done === true) {
+        toDoTextElement.style.textDecoration = "line-through";
+      } else if (task.done === false) {
+        toDoTextElement.style.textDecoration = "none";
+      }
+
+      toDoTextElement.addEventListener("click", () => {
+        // Get the tasks array from local storage
+        let taskFromLS = JSON.parse(localStorage.getItem("task"));
+
+        // Find the index of the task in the array that matches the clicked to-do item
+        let index = taskFromLS.findIndex(
+          (task) => task.text === toDoTextElement.innerText
+        );
+
+        // If the index is found, remove the task from the array, update local storage, and display the updated list
+        if (index !== -1) {
+          taskFromLS.splice(index, 1);
+          localStorage.setItem("task", JSON.stringify(taskFromLS));
+          displayToDoList();
+        }
+
+        if (toDoTextElement.style.textDecoration !== "line-through") {
+          toDoTextElement.style.textDecoration = "line-through";
+          task.done = true;
+        } else {
+          toDoTextElement.style.textDecoration = "none";
+          task.done = false;
+        }
+        saveToDoList(task.text, task.done);
+        displayToDoList();
+      });
+
       //creating remove button
       const removeButtonElement = document.createElement("button");
       removeButtonElement.classList.add("remove-button");
@@ -110,12 +151,21 @@ function displayToDoList() {
       removeButtonElement.addEventListener("click", () => {
         toDoContainerElement.removeChild(toDoElement);
 
-        //localstorage
-        let deleteTaskValue = JSON.parse(localStorage.getItem("task"));
-        deleteTaskValue.splice(
-          deleteTaskValue.indexOf({ text: inputElement.value })
+        // Get the tasks array from local storage
+        let taskFromLS = JSON.parse(localStorage.getItem("task"));
+
+        // Find the index of the task in the array that matches the clicked to-do item
+        let index = taskFromLS.findIndex(
+          (task) => task.text === toDoTextElement.innerText
         );
-        localStorage.setItem("task", JSON.stringify(deleteTaskValue));
+
+        // If the index is found, remove the task from the array, update local storage, and display the updated list
+        if (index !== -1) {
+          taskFromLS.splice(index, 1);
+          localStorage.setItem("task", JSON.stringify(taskFromLS));
+          displayToDoList();
+        }
+        // Call the displayToDoList function to update the list
         displayToDoList();
       });
     }
